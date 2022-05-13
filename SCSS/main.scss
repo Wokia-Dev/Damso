@@ -1,0 +1,277 @@
+// **************************************************
+// MAIN SCSS FILE
+// **************************************************
+
+// command to compile scss to css : sass --watch SCSS/main.scss Resources/CSS/style.css
+
+// import scss files
+@import './_variables.scss';
+@import './_mixins.scss';
+@import './_placeholders.scss';
+
+//DEBUG
+
+
+// styles
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+hr {
+  margin: 75px auto 30px;
+  border: solid 1px $grey-color;
+  border-radius: 20px;
+  width: 250px;
+}
+
+
+.nav-container {
+  display: flex;
+  margin: 20px;
+
+  .title-icon {
+    display: flex;
+    height: 75px;
+    color: $main-color;
+
+    img {
+      @include box(75px);
+      margin-right: 10px;
+    }
+
+    h2 {
+      margin-top: 15px;
+      margin-bottom: 0;
+      @include font-select($main-font, 35px, 800);
+      text-transform: uppercase;
+    }
+  }
+
+  .nav-menu {
+    margin-left: auto;
+
+    ul {
+      @extend %flex-centerY;
+      list-style: none;
+
+      #last-li {
+        margin-right: 75px;
+      }
+
+      li {
+        @media screen and (max-width: 850px){
+          display: none;
+        }
+      }
+
+      .li-img {
+        margin-right: 20px;
+        @media screen and (max-width: 850px){
+          display: block;
+        }
+      }
+
+      li {
+        margin-right: 40px;
+        @include font-select($main-font, null, 600);
+
+        a {
+          position: relative;
+          text-decoration: none;
+          color: $main-color;
+
+          img {
+            @include box(45px);
+          }
+        }
+
+
+        a::before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 4px;
+          border-radius: 4px;
+          background-color: #18272F;
+          bottom: -5px;
+          left: 0;
+          transform-origin: right;
+          transform: scaleX(0);
+          transition: transform .3s ease-in-out;
+        }
+
+        a:hover::before {
+          transform-origin: left;
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+
+}
+
+main {
+  .main-container {
+    @extend %flex-centerY;
+    width: 100%;
+
+    .text-container {
+      max-width: 350px;
+      min-width: 250px;
+      transform: rotate(90deg);
+      color: $main-color;
+
+      h1 {
+        transform: rotate(180deg);
+        @include font-select($main-font, 40px, 800, null, uppercase)
+      }
+      h4 {
+        transform: rotate(180deg);
+        @include font-select($main-font)
+      }
+    }
+
+    .img-damso {
+      background-image: url("https://fyooyzbm.filerobot.com/v7/SH_ART_DAMSO_00554%28c%29OJOZ-vpzwnT7j.jpg?vh=d6cb2a&ci_seal=924aa899cd");
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 970px;
+      width: 80%;
+
+      @media screen and (max-width: 1150px){
+        height: 850px;
+        background-position: center;
+      }
+
+      @media screen and (max-width: 850px){
+        height: 700px;
+      }
+
+    }
+  }
+}
+
+.bio-container {
+  margin-top: 100px;
+
+  .bio-text {
+    @extend %horizontal-align;
+    @include font-select($main-font, 35px, 800, null, uppercase);
+    text-align: center;
+    margin-bottom: 75px;
+  }
+  .bio-list {
+    list-style: none;
+    @include font-select($main-font, 18px, 400);
+    margin-left: 50px;
+
+    span {
+      font-weight: 700;
+    }
+  }
+}
+
+
+.album-section {
+  height: 800px;
+  margin-top: 100px;
+
+  h2 {
+    @extend %horizontal-align;
+    @include font-select($main-font, 35px, 800, null, uppercase);
+    text-align: center;
+    margin-bottom: 75px;
+  }
+}
+
+.albums-container {
+  display: block;
+
+  @media screen and (min-width: 660px){
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 50px;
+    grid-row-gap: 50px;
+    justify-items: center;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 800px;
+  }
+
+  @media screen and (min-width: 1200px){
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1 ,1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    max-width: 1300px;
+  }
+
+  .album {
+    @include box(250px, 470px);
+    @include max-dim(250px, 470px);
+    @extend %flex-center-column;
+    @extend %vertical-align;
+    margin-top: 50px;
+    border: $main-color 2px solid;
+    border-radius: 20px;
+    font-family: $main-font;
+    color: $main-color;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+
+
+    &:hover {
+      -webkit-box-shadow: 5px 5px 0px 0px #1DB954, 10px 10px 0px 0px #40C56F, 15px 15px 0px 0px #63D089, 20px 20px 0px 0px #86DCA4, 5px 5px 15px 15px rgba(0,0,0,0);
+      box-shadow: 5px 5px 0px 0px #1DB954, 10px 10px 0px 0px #40C56F, 15px 15px 0px 0px #63D089, 20px 20px 0px 0px #86DCA4, 5px 5px 15px 15px rgba(0,0,0,0);
+    }
+
+    img {
+      @include box(200px);
+      border-radius: 5px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+
+    a {
+      text-decoration: none;
+      text-transform: uppercase;
+      color: $main-color;
+
+      .btn {
+        @include box(100px, 50px);
+        border-radius: 10px;
+        background: $secondary-color;
+        @extend %flex-center;
+        font-weight: 600;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+      }
+    }
+  }
+
+
+}
+
+
+/* Scroll Bar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* -Scroll Bar- */

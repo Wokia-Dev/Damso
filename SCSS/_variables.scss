@@ -1,0 +1,48 @@
+// **************************************************
+// VARIABLES
+// **************************************************
+
+
+// COLORS
+
+$main-color : #191414;
+$secondary-color : #1DB954;
+$grey-color : #d1d2d2;
+$white-color : #eaebeb;
+
+//Fonts
+$main-font : 'Gilroy', sans-serif;
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url("/Resources/Fonts/Gilroy-Light.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url("/Resources/Fonts/Gilroy-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url("/Resources/Fonts/Gilroy-Medium.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url("/Resources/Fonts/Gilroy-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url("/Resources/Fonts/Gilroy-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url("/Resources/Fonts/Gilroy-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+}
